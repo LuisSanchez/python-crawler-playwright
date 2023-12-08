@@ -1,0 +1,14 @@
+{
+  "name": "telescope",
+  "version": "1.0.0",
+  "description": "Give a CSV file of company names, create a script that can find linkedin URLs for those companies. The linkedin URLs should be stored as a CSV file. And once that is done, extend the script using Playwright browser to find the employee count from LinkedIn.",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.40.1",
+    "@types/node": "^20.10.4"
+  }
+}
