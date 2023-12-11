@@ -2,22 +2,29 @@
 
 Given a CSV file of company names, create a script that can find LinkedIn URLs for those companies. The LinkedIn URLs should be stored as a CSV file. Once that is done, extend the script using Playwright browser to find the employee count from LinkedIn.
 
-## Needed libraries
+## Installation
 
-First install the following libraries on your virtual env.
+Install the following libraries on your virtual env.
+
 To create a virtual env type the following:
 
 ```python
 python -m venv vtel
 ```
 
-### Then install using the following command:
-
+#### Install the dependency librearies:
+On the terminal, type:
 ```
 pip install -r requirements.txt
 ```
 
-#### This program uses the following libraries:
+#### Install playwright:
+On the terminal, type:
+```
+playwright install
+```
+
+#### As information, this program uses the following libraries:
 
 - playwright
 - pytest-playwright
@@ -27,13 +34,13 @@ pip install -r requirements.txt
 
 ### Run tests
 
-Run the following command in your terminal:
+Run the following command on your terminal:
 
 ```python
 pytest
 ```
 
-## How to use the program?
+## How to use it?
 
 You need to add a **valid username and password** to login successfully and access the feed and people url paths.
 This can be added on the `start.py` file.
