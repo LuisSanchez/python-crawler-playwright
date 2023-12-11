@@ -3,7 +3,6 @@ from playwright.sync_api import sync_playwright
 from linkedin_scrapper import (
     find_linkedin_urls,
     find_company_employees,
-    scrape_linkedin,
 )
 
 
