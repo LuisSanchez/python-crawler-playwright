@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 from file_manager import file_reader, file_writer
 from playwright.sync_api import sync_playwright, Page
 
+# Slow down the script by 2 seconds to make it easier to follow and avoid getting blocked
+SLOW_MO = 2000
 LINKEDIN_URL = "https://www.linkedin.com"
 DEFAULT_HEADERS = ["Company Name", "LinkedIn URL"]
 
@@ -92,7 +94,7 @@ def find_company_employees(page: Page, linkedin_urls: str) -> List[str]:
     return employees
 
 
-def login_to_linkedin(companies, username, password) -> None:
+def scrape_linkedin(companies, username, password) -> None:
     """
     Logs into LinkedIn using the provided username and password,
     scrapes company URLs, saves them to a CSV file, and then
@@ -104,7 +106,7 @@ def login_to_linkedin(companies, username, password) -> None:
         password (str): LinkedIn password.
     """
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(slow_mo=2000)
+        browser = playwright.chromium.launch(slow_mo=SLOW_MO)
         context = browser.new_context()
         page = context.new_page()
 
@@ -133,19 +135,10 @@ def login_to_linkedin(companies, username, password) -> None:
                 headers=DEFAULT_HEADERS + ["Employee Count", "Associated Members"],
                 companies=company_employees,
             )
+            print(
+                "Scraping completed!, please check the linkedin_urls.csv and company_employees.csv files."
+            )
         else:
             print("Login failed!")
 
         browser.close()
-
-
-def start():
-    companies = file_reader()
-    # Replace with your LinkedIn credentials
-    username = ""
-    password = ""
-    login_to_linkedin(companies, username, password)
-
-
-if __name__ == "__main__":
-    start()
