@@ -1,4 +1,4 @@
-# [Telescope](https://telescopepartners.com/) Assignment
+# Simple LinkedIn Crawler using Playwright and BS4
 
 Given a CSV file of company names, create a script that can find LinkedIn URLs for those companies. The LinkedIn URLs should be stored as a CSV file. Once that is done, extend the script using Playwright browser to find the employee count from LinkedIn.
 
